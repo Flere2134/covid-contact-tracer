@@ -63,7 +63,11 @@ def main():
         button_1 = tk.Button(root, text = "Add Contact", command = add_contact_entry)
         button_1.grid(row=4, column=0, columnspan=2, pady=5)
 
-        root.mainloop()
+        tk.Label(root, text = "Search Contact:", font = ("Helveltica", 10)).grid(row=5, column=0, sticky=tk.W)
+        search_entry = tk.Entry(root)
+        search_entry.grid(row=5, column=1)
+        button_2 = tk.Button(root, text = "Search", command = search_contact_entry)
+        button_2.grid(row=6, column=0, columnspan=2, pady=5)
 
 
 if __name__ == "__main__":
