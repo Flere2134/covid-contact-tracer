@@ -39,7 +39,7 @@ def main():
         app = ContactTracingApp("contacts.txt")
 
         root = tk.Tk()
-        root.geometry("250x250")
+        root.geometry("280x300")
         root.title("COVID-19 Contact Tracing App") #title of GUI
 
         #widgets
@@ -68,6 +68,9 @@ def main():
         search_entry.grid(row=5, column=1)
         button_2 = tk.Button(root, text = "Search", command = search_contact_entry)
         button_2.grid(row=6, column=0, columnspan=2, pady=5)
+
+        result_text = tk.Text(root, height=10, width=40)
+        result_text.grid(row=7, column=0, columnspan=2, pady=5)
 
 
 if __name__ == "__main__":
