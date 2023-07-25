@@ -60,6 +60,10 @@ def main():
         location_entry.grid(row=2, column=1)
         date_entry.grid(row=3, column=1)
 
+        button_1 = tk.Button(root, text = "Add Contact", command = add_contact_entry)
+        button_1.grid(row=4, column=0, columnspan=2, pady=5)
+
+        root.mainloop()
 
 
 if __name__ == "__main__":
