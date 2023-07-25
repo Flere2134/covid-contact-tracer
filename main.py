@@ -5,27 +5,34 @@ import tkinter as tk
 from tkinter import messagebox
 
 def login():
-        username = input("Enter username: ")
-        password = input("Enter password: ")
+    def check_login():
+        username = username_entry.get()
+        password = password_entry.get()
 
         if username == "User123" and password == "1234":
             login_window.destroy()
-            main.app()
+            main()
+            return True
         else:
-            messagebox.showerror("INVALID INPUT. PLEASE TRY AGAIN!")
+            messagebox.showerror("INVALID INPUT. TRY AGAIN!")
 
-login_window = tk.Tk()
-login_window.geometry("200x150")
-login_window.title("User Login")
+    login_window = tk.Tk()
+    login_window.geometry("250x250")
+    login_window.title("User Login")
 
-tk.Label(login_window, text = "Username:", font = ("Helveltica", 10)).pack()
-username_entry = tk.Entry(login_window)
-username_entry.pack()
+    tk.Label(login_window, text = "Username:", font = ("Helveltica", 10)).pack()
+    username_entry = tk.Entry(login_window)
+    username_entry.pack()
 
-tk.Label(login_window, text = "Password:", font = ("Helveltica", 10))
-password_entry = tk.Entry(login_window)
-password_entry.pack()
-    
+    tk.Label(login_window, text = "Password:", font = ("Helveltica", 10)).pack()
+    password_entry = tk.Entry(login_window)
+    password_entry.pack()
+
+    login_button = tk.Button(login_window, text = "Login", command = check_login)
+    login_button.pack()
+
+    login_window.mainloop()
+    return False
 
 def add_contact_entry():
     name = name_entry.get()
@@ -47,7 +54,6 @@ def search_contact_entry():
         messagebox.showinfo("Contact not found. Please add contact instead.")
 
 def main():
-    if login():
         global app
         app = ContactTracingApp("contacts.txt")
 
@@ -88,4 +94,4 @@ def main():
         contact_tracing_app_window.mainloop()
 
 if __name__ == "__main__":
-    main()
+    login()
