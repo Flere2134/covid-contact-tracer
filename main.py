@@ -23,6 +23,16 @@ def add_contact_entry():
     app.add_contact(name, number, location, date_of_visit)
     messagebox.showinfo("Contact added")
 
+def search_contact_entry():
+    search_term = search_term_entry.get()
+    matching_contacts = app.search_contact(search_term)
+    if matching_contacts:
+        result_text.delete("1.0", tk.END)
+        for contact in matching_contacts:
+            result_text.insert(tk.END, str(contact), "\n")
+    else:
+        messagebox.showinfo("Contact not found. Please add contact instead.")
+
 def main():
     if login():
         app = ContactTracingApp("contacts.txt")
