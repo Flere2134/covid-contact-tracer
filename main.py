@@ -17,6 +17,14 @@ def login():
 login_window = tk.Tk()
 login_window.geometry("200x150")
 login_window.title("User Login")
+
+tk.Label(login_window, text = "Username:", font = ("Helveltica", 10)).pack()
+username_entry = tk.Entry(login_window)
+username_entry.pack()
+
+tk.Label(login_window, text = "Password:", font = ("Helveltica", 10))
+password_entry = tk.Entry(login_window)
+password_entry.pack()
     
 
 def add_contact_entry():
