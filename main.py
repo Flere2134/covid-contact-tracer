@@ -35,7 +35,11 @@ def search_contact_entry():
 
 def main():
     if login():
+        global app
         app = ContactTracingApp("contacts.txt")
+
+        root = tk.Tk()
+        root.title("COVID-19 Contact Tracing App") #title of GUI
 
         while True:
             print("\nCOVID Contact Tracing App\n1. Add a Contact\n2. Search a Contact\n3. Exit")
