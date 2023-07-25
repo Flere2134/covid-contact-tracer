@@ -1,6 +1,8 @@
 from contact_tracing_app import ContactTracingApp
 from contact import Contact
 from file_handler import FileHandler
+import tkinter as tk
+from tkinter import messagebox
 
 def login():
     while True:
@@ -10,7 +12,16 @@ def login():
         if username == "User123" and password == "1234":
             return True
         else:
-            print("Invalid. Please try again!") 
+            print("Invalid. Please try again!")
+
+def add_contact_entry():
+    name = name_entry.get()
+    number = number_entry.get()
+    location = location_entry.get()
+    date_of_visit = date_of_visit_entry.get()
+
+    app.add_contact(name, number, location, date_of_visit)
+    messagebox.showinfo("Contact added")
 
 def main():
     if login():
